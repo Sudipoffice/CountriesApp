@@ -17,19 +17,19 @@ const CountryCard = ({ name, flag, population, region, capital, data }) => {
       <img
         src={flag}
         alt={`${name} Flag`}
-        className="  h-40 w-80 md:w-90 lg:h-44 lg:w-100 object-cover m-0 "
+        className="  sm:h-24 md:h-40 lg:h-44 w-80 md:w-90 lg:w-100 object-cover m-0 "
       />
       <div className="flex flex-col place-content-around m-5  ">
-        <p className="text-lg xl:text-lg 2xl:text-4xl font-bold py-3">{name}</p>
-        <p className="text-sm xl:text-sm 2xl:text-2xl">
+        <p className=" lg:text-lg xl:text-lg 2xl:text-3xl font-bold py-3">{name}</p>
+        <p className="text-xs lg:text-sm xl:text-sm 2xl:text-xl">
           <b>Population: </b>
           {population}
         </p>
-        <p className="text-sm xl:text-sm 2xl:text-2xl">
+        <p className=" text-xs lg:text-sm xl:text-sm 2xl:text-xl">
           <b>Region: </b>
           {region}
         </p>
-        <p className="text-sm xl:text-sm 2xl:text-2xl">
+        <p className="text-xs lg:text-sm xl:text-sm 2xl:text-xl">
           <b>Capital: </b>
           {capital}
         </p>

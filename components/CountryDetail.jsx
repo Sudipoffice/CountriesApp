@@ -69,17 +69,17 @@ const CountryDetail = () => {
   return countryData === null ? (
     <CountryLoading />
   ) : (
-    <div className="h-screen w-full flex flex-col pt-28 bg-white text-black dark:bg-gray-700 dark:text-white">
+    <div className="h-[140vh] lg:h-screen w-full flex flex-col translate-y-20 pt-15 lg:pt-20 bg-white text-black dark:bg-gray-700 dark:text-white">
       <button
         onClick={() => history.back()}
-        className="bi bi-arrow-left-short border-none bg-white text-black dark:bg-gray-600 dark:text-white p-1 w-20 rounded-lg ml-4 cursor-pointer hover:bg-slate-100 transition-transform duration-300 ease-in-out transform hover:scale-110"
+        className="bi bi-arrow-left-short border-none bg-white text-black dark:bg-gray-600 dark:text-white p-1 m-2 w-20 rounded-lg ml-4 cursor-pointer hover:bg-slate-100 transition-transform duration-300 ease-in-out transform hover:scale-110"
         style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 2px 7px" }}
       >
         &nbsp;Back
       </button>
       <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start place-content-around">
         <img
-          className=" h-40 m-2  lg:h-72  lg:my-0"
+          className=" h-40 m-0  lg:h-72  lg:my-0"
           src={countryData.flag}
           alt={`${countryData.name} flag`}
         ></img>
@@ -87,7 +87,7 @@ const CountryDetail = () => {
           <h1 className="text-3xl flex justify-center lg:justify-start font-bold">
             {countryData.name}
           </h1>
-          <div className="mt-8 h-[90vw] lg:h-[30vw] lg:w-[30vw] text-gray-700 dark:text-white">
+          <div className=" h-[90vw] lg:h-[30vw] lg:w-[30vw] text-gray-700 dark:text-white">
             <p className="m-2">
               <b>Population:</b> {countryData.population}{" "}
             </p>
