@@ -56,6 +56,7 @@ const CountryDetail = () => {
       .catch((e) => {
         setNotFound(true);
       });
+      window.scrollTo(0, 0);
   }, [countryName]);
 
   if (notFound) {
