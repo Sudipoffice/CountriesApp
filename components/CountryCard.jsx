@@ -2,9 +2,7 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 
 const CountryCard = ({ name, flag, population, region, capital, data }) => {
-  return (<>
-    {population !== 0 && capital &&
-    (
+  return (
       <Link
       to={`/${name}`}
       className="
@@ -38,10 +36,6 @@ const CountryCard = ({ name, flag, population, region, capital, data }) => {
       </div>
     </Link>
      )
-}
-  </>
-    
-  );
 };
 
 export default CountryCard;

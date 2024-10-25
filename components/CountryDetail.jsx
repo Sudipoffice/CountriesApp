@@ -10,7 +10,7 @@ const CountryDetail = () => {
   const { state } = useLocation();
 
   function updateCountryData(data) {
-    const [latitude, longitude] = data.capitalInfo.latlng;
+    const [latitude, longitude] = data.capitalInfo?.latlng || [null, null];
     setCountryData({
       name: data.name.common || data.name,
       capital: data.capital?.[0],
@@ -22,9 +22,7 @@ const CountryDetail = () => {
       languages: Object.values(data.languages || {}).join(", "),
       latitude: latitude,
       longitude: longitude,
-      nativeName: Object.values(
-        data.nativeName || {}?.[0]?.official || data.name.common
-      ),
+      nativeName: Object.values(data.name.nativeName || {})[0]?.official || data.name.common,
       region: data.region,
       timezone: data.timezones?.[0],
       population: data.population,
@@ -71,10 +69,10 @@ const CountryDetail = () => {
   return countryData === null ? (
     <CountryLoading />
   ) : (
-    <div className="min-h-screen min-w-screen bg-white text-black dark:bg-gray-700 dark:text-white">
+    <div className="h-screen w-full flex flex-col pt-28 bg-white text-black dark:bg-gray-700 dark:text-white">
       <button
         onClick={() => history.back()}
-        className="bi bi-arrow-left-short border-none bg-white text-black dark:bg-gray-600 dark:text-white p-1 w-20 rounded-lg m-28 ml-[5vw] cursor-pointer hover:bg-slate-100 transition-transform duration-300 ease-in-out transform hover:scale-110"
+        className="bi bi-arrow-left-short border-none bg-white text-black dark:bg-gray-600 dark:text-white p-1 w-20 rounded-lg ml-4 cursor-pointer hover:bg-slate-100 transition-transform duration-300 ease-in-out transform hover:scale-110"
         style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 2px 7px" }}
       >
         &nbsp;Back
@@ -117,7 +115,7 @@ const CountryDetail = () => {
             <p className="m-2">
               <b>Timezone:</b> {countryData.timezone}{" "}
             </p>
-            {countryData.borders.length !== 0 && (
+            {countryData?.borders?.length !== 0 && (
               <p className="m-2 flex flex-wrap items-center justify-start">
                 <b>Border Countries:</b> &nbsp;
                 {countryData.borders.map((border) => (
@@ -138,5 +136,6 @@ const CountryDetail = () => {
     </div>
   );
 };
+
 
 export default CountryDetail;
